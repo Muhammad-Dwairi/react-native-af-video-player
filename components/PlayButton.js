@@ -1,17 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import Icons from 'react-native-vector-icons/MaterialIcons'
 
 const backgroundColor = 'transparent'
 
 const styles = StyleSheet.create({
   playButton: {
-    opacity: 0.9
+    position: "absolute",
+    alignSelf: "center",
+    width: 70,
+    height: 70
   },
   playContainer: {
     flex: 1,
-    backgroundColor,
+    backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center'
   }
@@ -19,15 +22,8 @@ const styles = StyleSheet.create({
 
 const PlayButton = props => (
   <View style={styles.playContainer}>
-    <TouchableOpacity
-      onPress={() => props.onPress()}
-    >
-      <Icons
-        style={styles.playButton}
-        name={props.paused ? 'play-circle-outline' : 'pause-circle-outline'}
-        color={props.theme}
-        size={75}
-      />
+    <TouchableOpacity activeOpacity={1} onPress={() => props.onPress()} style={styles.playContainer}>
+      <Image source={props.paused ? props.playIcon : props.pausedIcon} style={styles.playButton} />
     </TouchableOpacity>
   </View>
 )

@@ -148,6 +148,8 @@ class Controls extends Component {
               paused={paused}
               loading={loading}
               theme={center}
+              pausedIcon={this.props.pausedIcon}
+              playIcon={this.props.playIcon}
             />
           </Animated.View>
           <ControlBar
@@ -196,7 +198,6 @@ Controls.propTypes = {
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  logo: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired
 }
 

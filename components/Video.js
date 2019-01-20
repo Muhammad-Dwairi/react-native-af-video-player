@@ -43,11 +43,11 @@ const defaultTheme = {
   center: '#FFF',
   fullscreen: '#FFF',
   volume: '#FFF',
-  scrubberThumb: '#FFF',
-  scrubberBar: '#FFF',
+  scrubberThumb: '#77aa22',
+  scrubberBar: '#77aa22',
   seconds: '#FFF',
   duration: '#FFF',
-  progress: '#FFF',
+  progress: '#77aa22',
   loading: '#FFF'
 }
 
@@ -109,7 +109,7 @@ class Video extends Component {
           this.setState({ fullScreen: true }, () => {
             this.props.onFullScreen(this.state.fullScreen)
             this.animToFullscreen(Win.height)
-            if (this.props.rotateToFullScreen) Orientation.lockToLandscape()
+            if (this.props.rotateToFullScreen) Orientation.lockToLandscapeRight()
           })
         }
       }
@@ -374,8 +374,7 @@ class Video extends Component {
             (styles.fullScreen, { height: this.animFullscreen })
             : { height: this.animInline },
           fullScreen ? null : style
-        ]}
-      >
+        ]}>
         <StatusBar hidden={fullScreen} />
         {
           ((loading && placeholder) || currentTime < 0.01) &&
@@ -423,6 +422,8 @@ class Video extends Component {
           theme={setTheme}
           inlineOnly={inlineOnly}
           controlDuration={controlDuration}
+          pausedIcon={this.props.pausedIcon}
+          playIcon={this.props.playIcon}
         />
       </Animated.View>
     )
@@ -470,7 +471,6 @@ Video.propTypes = {
   rate: PropTypes.number,
   volume: PropTypes.number,
   lockRatio: PropTypes.number,
-  logo: PropTypes.string,
   title: PropTypes.string,
   theme: PropTypes.object,
   resizeMode: PropTypes.string,

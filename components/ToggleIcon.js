@@ -32,8 +32,7 @@ const ToggleIcon = (props) => {
   return (
     <View style={styles.btnContainer}>
       <TouchableOpacity
-        onPress={() => props.onPress()}
-      >
+        onPress={() => props.onPress()}>
         <Icons
           style={padding}
           name={isOn ? iconOn : iconOff}

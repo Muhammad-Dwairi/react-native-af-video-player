@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 })
 
 const Scrubber = (props) => {
-  const trackColor = 'rgba(255,255,255,0.5)'
+  const trackColor = '#FFF';
   const { progress, theme, onSeek, onSeekRelease } = props
   return (
     <View style={styles.container}>
